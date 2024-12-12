@@ -1,0 +1,293 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f4f4f4;
+}
+
+@font-face {
+	font-family: khujia;
+	src: url(../fonts/Khuja-Uppercase-BF668c04acd5509.otf);
+	font-weight: 900;
+}
+
+@font-face {
+	font-family: uncage;
+	src: url(../fonts/ofont.ru_Uncage.ttf);
+	font-weight: 900;
+}
+
+header {
+	background: linear-gradient(45deg, #2a3139, #87919b, #c4cbd5);
+	background-size: 300% 300%;
+	animation: gradientAnimation 15s ease infinite;
+	color: #fff;
+	padding: 15px 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative; /* Добавлено для абсолютного позиционирования полоски */
+}
+
+@keyframes gradientAnimation {
+	0% {
+			background-position: 0% 50%;
+	}
+	50% {
+			background-position: 100% 50%;
+	}
+	100% {
+			background-position: 0% 50%;
+	}
+}
+
+.logo {
+	font-size: 36px;
+	font-weight: bold;
+	font-family: khujia;
+	text-align: center;
+	flex-grow: 1;
+}
+
+nav {
+	display: flex;
+	gap: 10px;
+	position: relative; /* Для полоски */
+}
+
+nav button {
+	padding: 1.3em 3em;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 2.5px;
+	font-weight: 500;
+	color: #000;
+	background-color: #fff;
+	border: none;
+	border-radius: 45px;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+}
+
+nav button:hover {
+	background-color: #23c483;
+	box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+	color: #fff;
+	transform: translateY(-7px);
+}
+
+nav button:active {
+	transform: translateY(-1px);
+}
+
+/* Полоска, расположенная на нижнем краю хедера */
+.indicator {
+	position: absolute;
+	bottom: 0; /* Расположена на нижней границе хедера */
+	width: 0; /* Ширина будет изменяться динамически */
+	height: 3px;
+	background-color: #23c483;
+	border-radius: 5px;
+	transition: all 0.3s ease-in-out;
+}
+
+/* Добавим стиль для активной кнопки */
+nav button.active {
+	background-color: #23c483;
+	color: white;
+}
+
+.main-content {
+	display: flex;
+	flex-direction: column;
+	margin: 20px;
+}
+
+.main-article {
+	background-color: #fff;
+	padding: 0;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+}
+
+.main-article img {
+	width: 100%;
+	height: auto;
+}
+
+footer {
+	background: linear-gradient(45deg, #2a3139, #87919b, #c4cbd5);
+	background-size: 300% 300%;
+	animation: gradientAnimation 15s ease infinite;
+	color: #fff;
+	text-align: center;
+	padding: 10px 0;
+	margin-top: 20px;
+	font-family: uncage;
+	position: relative;
+}
+
+.footer-text {
+	position: absolute;
+	right: 20px;
+	bottom: 10px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+/* Основной контейнер с дополнительными отступами для футера */
+main {
+	flex: 1; /* Заполняет оставшееся пространство между хедером и футером */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 50px 0; /* Увеличенные отступы сверху и снизу */
+}
+
+/* Контейнер для видео */
+.video-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative; /* Для размещения кнопки поверх видео */
+}
+
+/* Стили кнопки воспроизведения */
+button#playButton {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 10; /* Кнопка поверх видео */
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	background: linear-gradient(30deg, rgb(255, 130, 0) 20%, rgb(255, 38, 0) 80%);
+	color: white;
+	border: none;
+	box-shadow: rgba(193, 244, 246, 0.7) 0 0 0 0;
+	animation: pulse 1.2s cubic-bezier(0.8, 0, 0, 1) infinite;
+	transition: transform 0.3s ease-in-out;
+}
+
+button#playButton svg {
+	width: 26px;
+	height: 26px;
+}
+
+/* При наведении и фокусе увеличиваем размер */
+button#playButton:is(:hover, :focus) {
+	transform: translate(-50%, -50%) scale(1.2);
+}
+
+/* Анимация пульсации кнопки */
+@keyframes pulse {
+	0% {
+			box-shadow: 0 0 0 0 rgba(193, 244, 246, 0.7);
+	}
+	100% {
+			box-shadow: 0 0 0 45px rgba(193, 244, 246, 0);
+	}
+}
+
+/* Футер фиксирован внизу */
+footer {
+	margin-top: auto; /* Отталкивает футер вниз */
+}
+
+/* Контейнер для видео */
+.video-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative; /* Для размещения кнопки поверх видео */
+	width: 100%; /* Полная ширина на мобильных устройствах */
+	max-width: 640px; /* Ограничение ширины для больших экранов */
+	padding: 0 10px; /* Отступы для мобильных */
+}
+
+/* Видео плеер */
+#videoPlayer {
+	width: 100%; /* Видео адаптируется под ширину контейнера */
+	height: auto; /* Сохраняет пропорции */
+}
+
+/* Кнопка воспроизведения */
+button#playButton {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 10; /* Кнопка поверх видео */
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 60px; /* Меньший размер на мобильных */
+	height: 60px;
+	border-radius: 50%;
+	background: linear-gradient(30deg, rgb(255, 130, 0) 20%, rgb(255, 38, 0) 80%);
+	color: white;
+	border: none;
+	box-shadow: rgba(193, 244, 246, 0.7) 0 0 0 0;
+	animation: pulse 1.2s cubic-bezier(0.8, 0, 0, 1) infinite;
+	transition: transform 0.3s ease-in-out;
+}
+
+button#playButton svg {
+	width: 20px; /* Уменьшенный размер иконки */
+	height: 20px;
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 768px) {
+	.video-container {
+			padding: 20px 10px; /* Увеличиваем отступы на мобильных */
+	}
+
+	button#playButton {
+			width: 50px; /* Еще меньший размер кнопки на узких экранах */
+			height: 50px;
+	}
+
+	button#playButton svg {
+			width: 16px;
+			height: 16px;
+	}
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+	nav {
+			flex-direction: column;
+			gap: 5px;
+	}
+
+	nav button {
+			width: 100%;
+			padding: 0.6em;
+	}
+
+	.logo {
+			font-size: 20px;
+	}
+
+	footer {
+			font-size: 12px;
+	}
+}
