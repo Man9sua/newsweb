@@ -290,4 +290,7 @@ button#playButton svg {
 	footer {
 			font-size: 12px;
 	}
+	.indicator {
+		display: none;
+	}
 }
