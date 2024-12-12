@@ -400,4 +400,7 @@ footer {
   .logo {
     font-size: 24px; /* Уменьшаем размер шрифта в логотипе */
   }
+.indicator {
+	display: none;
+	}
 }
