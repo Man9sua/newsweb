@@ -154,9 +154,7 @@ span {
 .aaa:hover {
 	color: #9b59b6;
 }
-.layer-1 {
-	transform: scale(0.9);
-}
+
 
 @media screen and (max-width: 600px) {
 	.button-start {
